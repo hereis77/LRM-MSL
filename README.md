@@ -1,4 +1,4 @@
-# VaryTxLoc https://pan.baidu.com/s/1MlZFZhkcsvqs3vEITbHD5Q 提取码: kqzt
+# VaryTxLoc https://pan.baidu.com/s/1oU6IsZ97nSMgi9vWVeC4ew     r8r7 
 
 # Dataset Structure per Environment
 ## Each environment contains 40 radio maps, for an environment with index E, the maps are stored in the following format:
