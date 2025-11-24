@@ -7,7 +7,7 @@ from util.dataset_M2S import RadioCoorDataset
 from torch.utils.data import DataLoader
 
 
-def seed_torch(seed=12):
+def seed_torch(seed=1):
 	random.seed(seed)
 	os.environ['PYTHONHASHSEED'] = str(seed) # 为了禁止hash随机化，使得实验可复现
 	np.random.seed(seed)
@@ -17,7 +17,7 @@ def seed_torch(seed=12):
 	torch.backends.cudnn.benchmark = False
 	torch.backends.cudnn.deterministic = True
 
-seed_torch()
+seed_torch(1)
 
 model = URNet(model_name='M2S', model_type='M2S', img_size=200, patch_size=1, in_chans=1, latent_channels=64,
              out_channels=1, features=[64, 64, 64])
@@ -49,5 +49,6 @@ pre_sampled = True
 model.to('cuda')
 
 model.fit_wandb(train_loader, val_loader, optimizer, scheduler,min_samples, max_samples, pre_sampled,project_name = 'SourceLocalization-main',
-                run_name="M2SGLOBAL",dB_max=-47.84, dB_min=-147,epochs=10, save_model_epochs=50,save_model_dir='model_dic/M2SGLOBAL')
+                run_name="M2SGLOBAL",epochs=100, save_model_epochs=50,save_model_dir='model_dic/M2SGLOBAL')
+
 
